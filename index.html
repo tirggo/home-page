@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panorama da Construção Civil no Brasil</title>
   <style>
     body {
       font-family: sans-serif;
@@ -45,3 +46,40 @@
     }
   </style>
 </head>
+<body>
+  <h1>Panorama da Construção Civil no Brasil</h1>
+  <img id="hero-image" style="border: 2px dashed #607d8b; background-color: #eceff1;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAHgCAYAAACMxVqsAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5AUVEDMyRRO07wAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABZ0lEQVR42u3BMQEAAADCoPVP7WkJoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqAw5IAAHOiXvHAAAAAElFTkSuQmCC" alt="Infographic showing key topics in Brazilian civil construction. Central logo DT is surrounded by six colored circles with icons and text: Obras de Infraestrutura, Digitalização Construção, Construção Industrializada, Desempenho Segurança Conforto, Serviços para Construtoras, Materiais Sustentáveis. Title at top: Panorama da Construção Civil no Brasil. Footer: Elaboração Distrito Tecnológico SENAI-SP Publicação em GitHub Pages. The tone is professional and informative." />
+
+  <script>
+    // Display a simple SVG placeholder that shows the expected layout
+    (function(){
+      var img = document.getElementById('hero-image');
+      if (!img) return;
+      img.addEventListener('error', function(){
+        var svgNS = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('viewBox', '0 0 720 480');
+        svg.setAttribute('width', '720');
+        svg.setAttribute('height', '480');
+
+        var rect = document.createElementNS(svgNS, 'rect');
+        rect.setAttribute('width', '100%');
+        rect.setAttribute('height', '100%');
+        rect.setAttribute('fill', '#f3ebe0');
+
+        var text = document.createElementNS(svgNS, 'text');
+        text.setAttribute('x', '50%');
+        text.setAttribute('y', '50%');
+        text.setAttribute('dominant-baseline', 'middle');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('font-family', 'sans-serif');
+        text.setAttribute('font-size', '20');
+        text.setAttribute('fill', '#555');
+        text.textContent = 'panorama-construcao.png — imagem não encontrada';
+
+        svg.appendChild(rect);
+        svg.appendChild(text);
+        img.parentNode.replaceChild(svg, img);
+      });
+    })();
+  </script>
