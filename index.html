@@ -12,8 +12,10 @@
       margin: 0;
     }
     body {
-      /* Use the project's image as the page background. Keep a matching background color while the image loads. */
-      background-image: url('panorama-construcao.png');
+      /* Use the project's image as the page background and darken it by 25%.
+         We apply a semi-transparent black gradient on top of the image so the
+         visual appears 25% darker without changing the source file. */
+      background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('panorama-construcao.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
