@@ -6,34 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panorama da Construção Civil no Brasil</title>
   <style>
-    /* Make the page a clean full-bleed background with the panorama image */
+    /* Full-bleed background image, scaled to 75% of the viewport */
     html, body {
       height: 100%;
       margin: 0;
+      padding: 0;
     }
     body {
-      /* Use the project's image as the page background and darken it by 25%.
-         We apply a semi-transparent black gradient on top of the image so the
-         visual appears 25% darker without changing the source file. */
-      background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('panorama-construcao.png');
-      background-size: cover;
-      background-position: center center;
+      background-color: #fdfaf6; /* fallback */
+      background-image: url('panorama-construcao.png');
       background-repeat: no-repeat;
-      background-color: #fdfaf6;
-      /* remove any default type rendering — page is intentionally empty */
-      font-family: sans-serif;
-    }
-    /* Visually-hidden text for accessibility (screen readers only) */
-    .sr-only {
-      position: absolute !important;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+      background-position: center center;
+      background-size: 75%; /* scale image to 75% */
+      -webkit-background-size: 75%;
+      -moz-background-size: 75%;
+      -o-background-size: 75%;
     }
   </style>
 </head>
 <body>
-  <!-- Keep a short, non-visual description for screen readers. The page is otherwise intentionally empty. -->
-  <p class="sr-only">Panorama da Construção Civil no Brasil — Elaboração: Distrito Tecnológico SENAI-SP</p>
+  <!-- Clean page: only the background image is shown. To replace the image, add/commit
+       `assets/panorama-construcao.png` and keep the same filename. -->
 </body>
 </html>
