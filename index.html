@@ -1,123 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instituto de Tecnologia da Construção Civil - SENAI-SP</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<img
+  src="panorama-construcao.png"
+  alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP"
+  usemap="#mapaConstrucao"
+  width="800"
+  height="auto"
+  loading="lazy"
+>
+<map name="mapaConstrucao">
+  <!-- A - Cabeçalho da imagem -->
+  <area shape="rect" coords="200,20,600,100" href="https://tirggo.github.io/infografico-construcao/" alt="Panorama da Construção Civil no Brasil" target="_blank" />
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+  <!-- 0 - Centro -->
+  <area shape="circle" coords="400,300,50" href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/" alt="Áreas da Construção Civil" target="_blank" />
 
-    header {
-      background-color: #004080;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+  <!-- 1 - Obras de Infraestrutura -->
+  <area shape="circle" coords="180,200,50" href="https://tirggo.github.io/obras_infraestrutura/" alt="Obras de Infraestrutura" target="_blank" />
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-    }
+  <!-- 2 - Materiais Sustentáveis -->
+  <area shape="circle" coords="120,370,50" href="https://tirggo.github.io/infografico-materiais-sustentaveis/" alt="Materiais Sustentáveis" target="_blank" />
 
-    .imagem-container {
-      max-width: 800px;
-      width: 100%;
-      text-align: center;
-      background: #fff;
-      padding: 0.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
+  <!-- 4 - Desempenho, Segurança -->
+  <area shape="circle" coords="300,470,50" href="https://tirggo.github.io/infografico-nbr15575/" alt="Desempenho e Conforto" target="_blank" />
 
-    .imagem-container img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background-color: #eeeeee;
-      color: #555;
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 1rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        font-size: 1rem;
-      }
-
-      footer {
-        font-size: 0.75rem;
-        padding: 0.8rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    Instituto de Tecnologia da Construção Civil - SENAI-SP
-  </header>
-
-  <main>
-    <div class="imagem-container">
-      <img
-        src="./panorama-construcao.png"
-        alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP"
-        usemap="#mapaConstrucao"
-        loading="lazy"
-        onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/tirggo/home-page/5271949aaa873d6ff02e16537c51997a590daee2/panorama-construcao.png';"
-      >
-      <map name="mapaConstrucao">
-        <!-- A - Cabeçalho da imagem -->
-        <area shape="rect" coords="200,20,600,100" href="https://tirggo.github.io/infografico-construcao/" alt="Panorama da Construção Civil no Brasil" target="_blank" />
-
-        <!-- 0 - Centro (diagrama de inter-relação) -->
-        <area shape="circle" coords="320,350,40" href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/" alt="Áreas da Construção Civil" target="_blank" />
-
-        <!-- 1 - Obras de Infraestrutura -->
-        <area shape="circle" coords="140,200,60" href="https://tirggo.github.io/obras_infraestrutura/" alt="Obras de Infraestrutura" target="_blank" />
-
-        <!-- 2 - Materiais Sustentáveis -->
-        <area shape="circle" coords="100,370,60" href="https://tirggo.github.io/infografico-materiais-sustentaveis/" alt="Materiais Sustentáveis" target="_blank" />
-
-        <!-- 4 - Desempenho, Segurança, Conforto -->
-        <area shape="circle" coords="300,470,60" href="https://tirggo.github.io/infografico-nbr15575/" alt="Desempenho, Segurança e Conforto" target="_blank" />
-
-        <!-- 5 - Construção Industrializada -->
-        <area shape="circle" coords="490,290,60" href="https://tirggo.github.io/construcao_industrializada/" alt="Construção Industrializada" target="_blank" />
-      </map>
-    </div>
-  </main>
-
-  <footer>
-    <strong>Distrito Tecnológico do SENAI-SP</strong><br />
-    Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br />
-    © 2025 | Infográfico público para fins institucionais e educacionais | Compatível com GitHub Pages
-  </footer>
-
-</body>
-</html>
+  <!-- 5 - Construção Industrializada -->
+  <area shape="circle" coords="550,280,50" href="https://tirggo.github.io/construcao_industrializada/" alt="Construção Industrializada" target="_blank" />
+</map>
