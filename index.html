@@ -1,238 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instituto SENAI-SP</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    display:flex;flex-direction:column;min-height:100vh;
+    font-family:"Segoe UI",sans-serif;background:#f9f9f9;color:#333;
+  }
 
-    /* ===== MENU LATERAL ===== */
-    nav.menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 180px;
-      background: #f1f5f9;
-      border-right: 2px solid #dde1e4;
-      height: 100vh;
-      padding-top: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      z-index: 10;
-    }
-    nav.menu h2 {
-      font-size: 0.9rem;
-      text-align: center;
-      color: #004080;
-      margin-bottom: 0.6rem;
-    }
-    nav.menu a {
-      text-decoration: none;
-      padding: 0.6rem 0.8rem;
-      margin: 0 0.6rem;
-      background: #e2e8f0;
-      border-radius: 6px;
-      color: #333;
-      font-weight: 500;
-      text-align: center;
-      transition: background 0.3s, transform 0.2s;
-    }
-    nav.menu a:hover {
-      background: #cbd5e1;
-      transform: translateX(3px);
-    }
+  /* ===== MENU ===== */
+  nav.menu{
+    position:fixed;top:0;left:0;width:180px;height:100vh;
+    background:#f1f5f9;border-right:2px solid #dde1e4;
+    padding:1rem 0.5rem;display:flex;flex-direction:column;gap:0.6rem;
+    z-index:100;
+  }
+  nav.menu h2{
+    text-align:center;color:#004080;font-size:1rem;margin-bottom:.5rem;
+  }
+  nav.menu a{
+    display:block;text-decoration:none;text-align:center;
+    padding:0.6rem;background:#e2e8f0;border-radius:6px;
+    color:#333;font-weight:500;transition:all .2s;
+  }
+  nav.menu a:hover{background:#cbd5e1;transform:translateX(3px)}
 
-    /* ===== CONTEÚDO PRINCIPAL ===== */
-    header {
-      background: #004080;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-left: 180px;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-      margin-left: 180px;
-    }
-    .imagem-container {
-      max-width: 800px;
-      width: 100%;
-      text-align: center;
-      background: #fff;
-      padding: 0.5rem 0.5rem 1.5rem 0.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      position: relative;
-      margin-bottom: 1rem;
-    }
-    img.mapa {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 0 auto;
-    }
+  /* ===== CONTEÚDO ===== */
+  header{
+    background:#004080;color:#fff;text-align:center;padding:1rem;
+    font-weight:bold;margin-left:180px;
+  }
+  main{
+    flex:1;display:flex;align-items:center;justify-content:center;
+    padding:2rem;margin-left:180px;
+  }
+  .imagem-container{
+    max-width:800px;width:100%;background:#fff;border-radius:8px;
+    padding:1rem;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.05);
+  }
+  img.mapa{display:block;width:100%;height:auto;border-radius:6px}
 
-    /* ===== ÍCONES DOS LINKS ===== */
-    .marker {
-      position: absolute;
-      width: 14px; height: 14px;
-      background: rgba(0, 64, 128, 0.4);
-      border: 2px solid #fff;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      box-shadow: 0 0 4px rgba(0,0,0,0.3);
-      transition: transform 0.2s, background 0.2s;
-    }
-    .marker:hover {
-      transform: translate(-50%, -50%) scale(1.2);
-      background: rgba(0, 64, 128, 0.6);
-    }
+  /* ===== MARCADORES ===== */
+  .marker{
+    position:absolute;width:14px;height:14px;
+    background:rgba(0,64,128,.5);border:2px solid #fff;border-radius:50%;
+    transform:translate(-50%,-50%);pointer-events:none;
+    box-shadow:0 0 4px rgba(0,0,0,.3);
+  }
 
-    /* ===== RODAPÉ ===== */
-    footer {
-      background: #eeeeee;
-      color: #555;
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 1rem;
-      line-height: 1.6;
-      flex-shrink: 0;
-      z-index: 2;
-      position: relative;
-      margin-left: 180px;
-    }
+  footer{
+    background:#eee;color:#555;text-align:center;font-size:.85rem;
+    padding:1rem;margin-left:180px;
+  }
 
-    /* ===== RESPONSIVO ===== */
-    @media (max-width: 700px) {
-      nav.menu {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: center;
-        border-right: none;
-        border-bottom: 2px solid #dde1e4;
-      }
-      nav.menu a {
-        flex: 1;
-        font-size: 0.8rem;
-      }
-      header, main, footer { margin-left: 0; }
-    }
-  </style>
+  @media(max-width:700px){
+    nav.menu{position:relative;width:100%;height:auto;flex-direction:row;
+      border-right:none;border-bottom:2px solid #dde1e4;justify-content:center;}
+    header,main,footer{margin-left:0}
+  }
+</style>
 </head>
 <body>
 
-  <!-- MENU LATERAL -->
-  <nav class="menu">
-    <h2>MENU</h2>
-    <a href="#">Botão 1</a>
-    <a href="#">Botão 2</a>
-    <a href="#">Botão 3</a>
-    <a href="#">Botão 4</a>
-    <a href="#">Botão 5</a>
-    <a href="#">Botão 6</a>
-  </nav>
+<!-- MENU LATERAL -->
+<nav class="menu">
+  <h2>MENU</h2>
+  <a href="#">Botão 1</a>
+  <a href="#">Botão 2</a>
+  <a href="#">Botão 3</a>
+  <a href="#">Botão 4</a>
+  <a href="#">Botão 5</a>
+  <a href="#">Botão 6</a>
+</nav>
 
-  <header>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</header>
+<header>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</header>
 
-  <main>
-    <div class="imagem-container" id="container">
-      <img
-        id="imgMapa"
-        class="mapa"
-        src="panorama-construcao.png"
-        alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP"
-        usemap="#mapaConstrucao"
-        loading="lazy"
-      >
+<main>
+  <div class="imagem-container" id="container">
+    <img id="imgMapa" class="mapa" src="panorama-construcao.png"
+         alt="Infográfico" usemap="#mapaConstrucao">
 
-      <map name="mapaConstrucao" id="mapaConstrucao">
-        <area shape="circle" data-raw="circle|395,60,55" href="https://tirggo.github.io/infografico-construcao/" alt="Panorama" target="_blank" />
-        <area shape="circle" data-raw="circle|400,300,55" href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/" alt="Centro" target="_blank" />
-        <area shape="circle" data-raw="circle|180,200,50" href="https://tirggo.github.io/obras_infraestrutura/" alt="Infraestrutura" target="_blank" />
-        <area shape="circle" data-raw="circle|120,370,50" href="https://tirggo.github.io/infografico-materiais-sustentaveis/" alt="Materiais" target="_blank" />
-        <area shape="circle" data-raw="circle|300,470,50" href="https://tirggo.github.io/infografico-nbr15575/" alt="Desempenho" target="_blank" />
-        <area shape="circle" data-raw="circle|550,280,50" href="https://tirggo.github.io/construcao_industrializada/" alt="Industrializada" target="_blank" />
-      </map>
-    </div>
-  </main>
+    <map name="mapaConstrucao" id="mapaConstrucao">
+      <area shape="circle" data-raw="circle|400,300,55"
+            href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/"
+            alt="Centro" target="_blank" />
+      <area shape="circle" data-raw="circle|180,200,50"
+            href="https://tirggo.github.io/obras_infraestrutura/"
+            alt="Infraestrutura" target="_blank" />
+      <area shape="circle" data-raw="circle|120,370,50"
+            href="https://tirggo.github.io/infografico-materiais-sustentaveis/"
+            alt="Materiais" target="_blank" />
+      <area shape="circle" data-raw="circle|300,470,50"
+            href="https://tirggo.github.io/infografico-nbr15575/"
+            alt="Desempenho" target="_blank" />
+      <area shape="circle" data-raw="circle|550,280,50"
+            href="https://tirggo.github.io/construcao_industrializada/"
+            alt="Industrializada" target="_blank" />
+    </map>
+  </div>
+</main>
 
-  <footer>
-    <strong>Distrito Tecnológico do SENAI-SP</strong><br />
-    Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br />
-    © 2025 | Infográfico público para fins institucionais e educacionais | Compatível com GitHub Pages
-  </footer>
+<footer>
+  <strong>Distrito Tecnológico do SENAI-SP</strong><br>
+  Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br>
+  © 2025 | Infográfico público para fins institucionais e educacionais
+</footer>
 
-  <script>
-    (function(){
-      const img = document.getElementById('imgMapa');
-      const map = document.getElementById('mapaConstrucao');
-      const container = document.getElementById('container');
+<script>
+(function(){
+  const img=document.getElementById("imgMapa");
+  const map=document.getElementById("mapaConstrucao");
+  const container=document.getElementById("container");
 
-      function parseRaw(area){
-        const raw = area.getAttribute('data-raw');
-        if(!raw) return null;
-        const [kind, coordsStr] = raw.split('|');
-        const nums = coordsStr.split(',').map(n => parseFloat(n.trim()));
-        return { kind, nums };
+  function parseRaw(a){
+    const raw=a.dataset.raw;if(!raw)return null;
+    const [kind,c]=raw.split("|");
+    const nums=c.split(",").map(Number);
+    return{kind,nums};
+  }
+
+  function apply(){
+    const w=img.clientWidth||800,h=img.clientHeight||600;
+    const sx=w/800,sy=h/600;
+    container.querySelectorAll(".marker").forEach(m=>m.remove());
+    map.querySelectorAll("area").forEach(a=>{
+      const d=parseRaw(a);if(!d)return;
+      if(d.kind==="circle"){
+        const [x,y,r]=d.nums;
+        const nx=x*sx,ny=y*sy,nr=r*((sx+sy)/2);
+        a.coords=[nx,ny,nr].map(n=>Math.round(n)).join(",");
+        const m=document.createElement("div");
+        m.className="marker";m.style.left=nx+"px";m.style.top=ny+"px";
+        container.appendChild(m);
       }
+    });
+  }
 
-      function applyCoords(){
-        const naturalW = img.naturalWidth;
-        const naturalH = img.naturalHeight;
-        if(!naturalW || !naturalH) return;
-        const dispW = img.clientWidth;
-        const dispH = img.clientHeight;
-        const sx = dispW / naturalW;
-        const sy = dispH / naturalH;
+  img.addEventListener("load",apply);
+  window.addEventListener("resize",apply);
+  if(img.complete)apply();
+})();
+</script>
 
-        container.querySelectorAll('.marker').forEach(el => el.remove());
-
-        map.querySelectorAll('area').forEach(area => {
-          const data = parseRaw(area);
-          if(!data) return;
-
-          if(data.kind === 'circle'){
-            const [x,y,r] = data.nums;
-            const nx = x * sx;
-            const ny = y * sy;
-            const nr = r * (sx + sy)/2;
-            area.coords = [Math.round(nx), Math.round(ny), Math.round(nr)].join(',');
-
-            const marker = document.createElement('div');
-            marker.className = 'marker';
-            marker.style.left = nx + 'px';
-            marker.style.top = ny + 'px';
-            container.appendChild(marker);
-          }
-        });
-      }
-
-      img.addEventListener('load', applyCoords);
-      window.addEventListener('resize', applyCoords);
-      if(img.complete) applyCoords();
-    })();
-  </script>
 </body>
 </html>
