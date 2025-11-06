@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f9f9f9;
@@ -18,13 +15,53 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* ===== MENU LATERAL ===== */
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      background: #f1f5f9;
+      border-right: 2px solid #dde1e4;
+      height: 100vh;
+      padding-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      z-index: 10;
+    }
+    nav.menu h2 {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #004080;
+      margin-bottom: 0.6rem;
+    }
+    nav.menu a {
+      text-decoration: none;
+      padding: 0.6rem 0.8rem;
+      margin: 0 0.6rem;
+      background: #e2e8f0;
+      border-radius: 6px;
+      color: #333;
+      font-weight: 500;
+      text-align: center;
+      transition: background 0.3s, transform 0.2s;
+    }
+    nav.menu a:hover {
+      background: #cbd5e1;
+      transform: translateX(3px);
+    }
+
+    /* ===== CONTEÚDO PRINCIPAL ===== */
     header {
-      background-color: #004080;
-      color: white;
+      background: #004080;
+      color: #fff;
       text-align: center;
       padding: 1rem;
       font-size: 1.2rem;
-      font-weight: bold;
+      font-weight: 700;
+      margin-left: 180px;
     }
     main {
       flex: 1;
@@ -32,98 +69,111 @@
       align-items: center;
       justify-content: center;
       padding: 2rem 1rem;
+      margin-left: 180px;
     }
     .imagem-container {
       max-width: 800px;
       width: 100%;
       text-align: center;
       background: #fff;
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 1.5rem 0.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: relative;
+      margin-bottom: 1rem;
     }
-    .imagem-container img {
+    img.mapa {
       display: block;
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 6px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin: 0 auto;
     }
+
+    /* ===== ÍCONES DOS LINKS ===== */
+    .marker {
+      position: absolute;
+      width: 14px; height: 14px;
+      background: rgba(0, 64, 128, 0.4);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .marker:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+      background: rgba(0, 64, 128, 0.6);
+    }
+
+    /* ===== RODAPÉ ===== */
     footer {
-      background-color: #eeeeee;
+      background: #eeeeee;
       color: #555;
       text-align: center;
       font-size: 0.85rem;
       padding: 1rem;
       line-height: 1.6;
-      margin-top: auto;
+      flex-shrink: 0;
+      z-index: 2;
+      position: relative;
+      margin-left: 180px;
     }
-    @media (max-width: 600px) {
-      header {
-        font-size: 1rem;
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 700px) {
+      nav.menu {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 2px solid #dde1e4;
       }
-      footer {
-        font-size: 0.75rem;
-        padding: 0.8rem;
+      nav.menu a {
+        flex: 1;
+        font-size: 0.8rem;
       }
+      header, main, footer { margin-left: 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP
-  </header>
+
+  <!-- MENU LATERAL -->
+  <nav class="menu">
+    <h2>MENU</h2>
+    <a href="#">Botão 1</a>
+    <a href="#">Botão 2</a>
+    <a href="#">Botão 3</a>
+    <a href="#">Botão 4</a>
+    <a href="#">Botão 5</a>
+    <a href="#">Botão 6</a>
+  </nav>
+
+  <header>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</header>
 
   <main>
-    <div class="imagem-container">
+    <div class="imagem-container" id="container">
       <img
+        id="imgMapa"
+        class="mapa"
         src="panorama-construcao.png"
         alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP"
         usemap="#mapaConstrucao"
-        width="800"
-        height="auto"
         loading="lazy"
       >
 
-      <map name="mapaConstrucao">
-
-        <!-- Panorama da Construção Civil (Topo centralizado) -->
-        <area shape="circle" coords="395,60,55"
-          href="https://tirggo.github.io/infografico-construcao/"
-          alt="Panorama da Construção Civil no Brasil" target="_blank" />
-
-        <!-- Centro - Logo do Instituto -->
-        <area shape="circle" coords="400,300,55"
-          href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/"
-          alt="Áreas do Instituto" target="_blank" />
-
-        <!-- Obras de Infraestrutura -->
-        <area shape="circle" coords="150,160,65"
-          href="https://tirggo.github.io/obras_infraestrutura/"
-          alt="Obras de Infraestrutura" target="_blank" />
-
-        <!-- Materiais Sustentáveis -->
-        <area shape="circle" coords="150,460,65"
-          href="https://tirggo.github.io/infografico-materiais-sustentaveis/"
-          alt="Materiais Sustentáveis" target="_blank" />
-
-        <!-- Desempenho, Segurança e Conforto Ambiental -->
-        <area shape="circle" coords="395,460,65"
-          href="https://tirggo.github.io/infografico-nbr15575/"
-          alt="Desempenho, Segurança e Conforto Ambiental e Acústico" target="_blank" />
-
-        <!-- Construção Industrializada -->
-        <area shape="circle" coords="530,310,65"
-          href="https://tirggo.github.io/construcao_industrializada/"
-          alt="Construção Industrializada" target="_blank" />
-
-        <!-- Digitalização da Construção (sem link) -->
-        <!-- coords="390,160,60" -->
-
-        <!-- Serviços para Construtoras (sem link) -->
-        <!-- coords="10,310,60" -->
-
+      <map name="mapaConstrucao" id="mapaConstrucao">
+        <area shape="circle" data-raw="circle|395,60,55" href="https://tirggo.github.io/infografico-construcao/" alt="Panorama" target="_blank" />
+        <area shape="circle" data-raw="circle|400,300,55" href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/" alt="Centro" target="_blank" />
+        <area shape="circle" data-raw="circle|180,200,50" href="https://tirggo.github.io/obras_infraestrutura/" alt="Infraestrutura" target="_blank" />
+        <area shape="circle" data-raw="circle|120,370,50" href="https://tirggo.github.io/infografico-materiais-sustentaveis/" alt="Materiais" target="_blank" />
+        <area shape="circle" data-raw="circle|300,470,50" href="https://tirggo.github.io/infografico-nbr15575/" alt="Desempenho" target="_blank" />
+        <area shape="circle" data-raw="circle|550,280,50" href="https://tirggo.github.io/construcao_industrializada/" alt="Industrializada" target="_blank" />
       </map>
     </div>
   </main>
@@ -133,5 +183,56 @@
     Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br />
     © 2025 | Infográfico público para fins institucionais e educacionais | Compatível com GitHub Pages
   </footer>
+
+  <script>
+    (function(){
+      const img = document.getElementById('imgMapa');
+      const map = document.getElementById('mapaConstrucao');
+      const container = document.getElementById('container');
+
+      function parseRaw(area){
+        const raw = area.getAttribute('data-raw');
+        if(!raw) return null;
+        const [kind, coordsStr] = raw.split('|');
+        const nums = coordsStr.split(',').map(n => parseFloat(n.trim()));
+        return { kind, nums };
+      }
+
+      function applyCoords(){
+        const naturalW = img.naturalWidth;
+        const naturalH = img.naturalHeight;
+        if(!naturalW || !naturalH) return;
+        const dispW = img.clientWidth;
+        const dispH = img.clientHeight;
+        const sx = dispW / naturalW;
+        const sy = dispH / naturalH;
+
+        container.querySelectorAll('.marker').forEach(el => el.remove());
+
+        map.querySelectorAll('area').forEach(area => {
+          const data = parseRaw(area);
+          if(!data) return;
+
+          if(data.kind === 'circle'){
+            const [x,y,r] = data.nums;
+            const nx = x * sx;
+            const ny = y * sy;
+            const nr = r * (sx + sy)/2;
+            area.coords = [Math.round(nx), Math.round(ny), Math.round(nr)].join(',');
+
+            const marker = document.createElement('div');
+            marker.className = 'marker';
+            marker.style.left = nx + 'px';
+            marker.style.top = ny + 'px';
+            container.appendChild(marker);
+          }
+        });
+      }
+
+      img.addEventListener('load', applyCoords);
+      window.addEventListener('resize', applyCoords);
+      if(img.complete) applyCoords();
+    })();
+  </script>
 </body>
 </html>
