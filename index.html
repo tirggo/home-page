@@ -41,12 +41,18 @@
       max-width: 800px;
       width: 100%;
       text-align: center;
+      /* a light background for pale images so they remain visible on very light page backgrounds */
+      background: #fff;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
 
     .imagem-container img {
+      display: block;
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 6px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
@@ -79,7 +85,19 @@
 
   <main>
     <div class="imagem-container">
-      <img src="panorama-construcao.png" alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP">
+      <!--
+        Notes:
+        - Use an explicit relative path ("./...").
+        - onerror fallback points to raw.githubusercontent.com for the exact commit SHA;
+          this will load the image even if GitHub Pages is publishing a different branch/root.
+        - Replace the commit SHA in the raw URL if you publish from a different commit/branch.
+      -->
+      <img
+        src="./panorama-construcao.png"
+        alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP"
+        loading="lazy"
+        onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/tirggo/home-page/5271949aaa873d6ff02e16537c51997a590daee2/panorama-construcao.png';"
+      >
     </div>
   </main>
 
