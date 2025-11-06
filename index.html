@@ -1,31 +1,93 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panorama da Construção Civil no Brasil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instituto de Tecnologia da Construção Civil - SENAI-SP</title>
   <style>
-    /* Full-bleed background image, scaled to 75% of the viewport */
-    html, body {
-      height: 100%;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      background-color: #fdfaf6; /* fallback */
-      background-image: url('panorama-construcao.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 75%; /* scale image to 75% */
-      -webkit-background-size: 75%;
-      -moz-background-size: 75%;
-      -o-background-size: 75%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .imagem-container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .imagem-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #eeeeee;
+      color: #555;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1rem;
+      }
+
+      footer {
+        font-size: 0.75rem;
+        padding: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Clean page: only the background image is shown. To replace the image, add/commit
-       `assets/panorama-construcao.png` and keep the same filename. -->
+
+  <header>
+    Instituto de Tecnologia da Construção Civil - SENAI-SP
+  </header>
+
+  <main>
+    <div class="imagem-container">
+      <img src="panorama-construcao.png" alt="Infográfico do Instituto de Tecnologia da Construção Civil do SENAI-SP">
+    </div>
+  </main>
+
+  <footer>
+    <strong>Distrito Tecnológico do SENAI-SP</strong><br />
+    Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br />
+    © 2025 | Infográfico público para fins institucionais e educacionais | Compatível com GitHub Pages
+  </footer>
+
 </body>
 </html>
