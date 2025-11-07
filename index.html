@@ -73,7 +73,7 @@
     padding:2rem;margin-left:190px;
   }
   .imagem-container{
-    max-width:800px;width:100%;background:#fff;border-radius:10px;
+    max-width:850px;width:100%;background:#fff;border-radius:10px;
     padding:1rem;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.05);
     border:1px solid #e0e0e0;overflow:hidden;
     transition:all 0.3s ease;
@@ -85,16 +85,20 @@
 
   img.mapa{
     display:block;width:100%;height:auto;border-radius:6px;
-    object-fit:cover;object-position:0 120px; /* recorta parte superior */
-    aspect-ratio:1/1; /* formato quase quadrado */
+    object-fit:contain;aspect-ratio:1/1;
   }
 
   /* ===== MARCADORES ===== */
   .marker{
-    position:absolute;width:14px;height:14px;
-    background:rgba(0,64,128,.5);border:2px solid #fff;border-radius:50%;
+    position:absolute;width:18px;height:18px;
+    background:rgba(0,64,128,.55);border:2px solid #fff;border-radius:50%;
     transform:translate(-50%,-50%);pointer-events:none;
-    box-shadow:0 0 4px rgba(0,0,0,.3);
+    box-shadow:0 0 5px rgba(0,0,0,.3);
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .marker:hover{
+    transform:translate(-50%,-50%) scale(1.2);
+    background:rgba(0,95,184,.8);
   }
 
   /* ===== RODAPÉ ===== */
@@ -150,19 +154,25 @@
          alt="Infográfico: Áreas de Atuação do Instituto de Construção Civil" usemap="#mapaConstrucao">
 
     <map name="mapaConstrucao" id="mapaConstrucao">
-      <!-- Links das áreas -->
-      <area shape="circle" data-raw="circle|180,200,50"
+      <!-- Coordenadas ajustadas à imagem 1007x1054 -->
+      <area shape="circle" data-raw="circle|230,310,80"
             href="https://tirggo.github.io/obras_infraestrutura/"
-            alt="Infraestrutura" target="_blank" />
-      <area shape="circle" data-raw="circle|120,370,50"
+            alt="Obras de Infraestrutura" target="_blank" />
+      <area shape="circle" data-raw="circle|240,760,80"
             href="https://tirggo.github.io/infografico-materiais-sustentaveis/"
             alt="Materiais Sustentáveis" target="_blank" />
-      <area shape="circle" data-raw="circle|300,470,50"
+      <area shape="circle" data-raw="circle|470,900,80"
             href="https://tirggo.github.io/infografico-nbr15575/"
-            alt="Desempenho e Segurança" target="_blank" />
-      <area shape="circle" data-raw="circle|550,280,50"
+            alt="Desempenho, Segurança e Conforto" target="_blank" />
+      <area shape="circle" data-raw="circle|760,700,80"
             href="https://tirggo.github.io/construcao_industrializada/"
             alt="Construção Industrializada" target="_blank" />
+      <area shape="circle" data-raw="circle|770,360,80"
+            href="https://tirggo.github.io/digitalizacao-construcao/"
+            alt="Digitalização da Construção" target="_blank" />
+      <area shape="circle" data-raw="circle|420,780,80"
+            href="https://tirggo.github.io/servicos-construtoras/"
+            alt="Serviços para Construtoras" target="_blank" />
     </map>
   </div>
 </main>
@@ -191,8 +201,8 @@
   }
 
   function apply(){
-    const w=img.clientWidth||800,h=img.clientHeight||600;
-    const sx=w/800,sy=h/600;
+    const w=img.clientWidth||1007,h=img.clientHeight||1054;
+    const sx=w/1007,sy=h/1054;
     container.querySelectorAll(".marker").forEach(m=>m.remove());
     map.querySelectorAll("area").forEach(a=>{
       const d=parseRaw(a);if(!d)return;
