@@ -4,44 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Instituto SENAI-SP</title>
+
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    display:flex;flex-direction:column;min-height:100vh;
-    font-family:"Segoe UI",sans-serif;background:#f9f9f9;color:#333;
-  }
+  body{font-family:"Segoe UI",sans-serif;background:#f9f9f9;color:#333;}
 
   /* ===== MENU ===== */
   nav.menu{
-    position:fixed;top:0;left:0;width:180px;height:100vh;
+    position:fixed;top:0;left:0;width:190px;height:100vh;
     background:#f1f5f9;border-right:2px solid #dde1e4;
-    padding:1rem 0.5rem;display:flex;flex-direction:column;gap:0.6rem;
-    z-index:100;
+    padding:1rem 0.6rem;display:flex;flex-direction:column;gap:0.6rem;
+    overflow-y:auto;z-index:100;
   }
-  nav.menu h2{
-    text-align:center;color:#004080;font-size:1rem;margin-bottom:.5rem;
-  }
+  nav.menu h2{text-align:center;color:#004080;font-size:1rem;margin-bottom:.6rem;}
   nav.menu a{
     display:block;text-decoration:none;text-align:center;
-    padding:0.6rem;background:#e2e8f0;border-radius:6px;
-    color:#333;font-weight:500;transition:all .2s;
+    padding:0.6rem;border-radius:6px;
+    background:#e2e8f0;color:#333;font-weight:500;transition:all .2s;
   }
-  nav.menu a:hover{background:#cbd5e1;transform:translateX(3px)}
+  nav.menu a:hover{background:#cbd5e1;transform:translateX(3px);}
+  /* ===== BOTÃO DESTACADO (BD-PDI) ===== */
+  nav.menu a.bd-pdi{
+    background:#004080;color:#fff;font-weight:bold;
+    border:2px solid #003366;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  nav.menu a.bd-pdi:hover{
+    background:#005fb8;border-color:#004080;transform:translateX(3px);
+  }
+  nav.menu a.bd-pdi span.icon{
+    font-size:1rem;
+  }
+
+  /* ===== CABEÇALHO ===== */
+  header{
+    background:#004080;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:0.8rem 2rem;margin-left:190px;
+  }
+  header h1{font-size:1.2rem;font-weight:bold;text-align:left;}
+  header img{height:60px;width:auto;}
+
+  /* ===== BOTÃO APRESENTAÇÃO ===== */
+  .btn-apresentacao{
+    position:fixed;top:10px;right:20px;
+    background:rgba(0,64,128,0.85);color:#fff;
+    border:none;border-radius:50%;width:36px;height:36px;
+    font-size:18px;cursor:pointer;z-index:200;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  }
+  .btn-apresentacao:hover{background:#005fb8;}
 
   /* ===== CONTEÚDO ===== */
-  header{
-    background:#004080;color:#fff;text-align:center;padding:1rem;
-    font-weight:bold;margin-left:180px;
-  }
   main{
     flex:1;display:flex;align-items:center;justify-content:center;
-    padding:2rem;margin-left:180px;
+    padding:2rem;margin-left:190px;
   }
   .imagem-container{
-    max-width:800px;width:100%;background:#fff;border-radius:8px;
+    max-width:800px;width:100%;background:#fff;border-radius:10px;
     padding:1rem;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.05);
+    border:1px solid #e0e0e0;overflow:hidden;
+    transition:all 0.3s ease;
   }
-  img.mapa{display:block;width:100%;height:auto;border-radius:6px}
+  .imagem-container.apresentacao-ativa{
+    border:3px solid #005fb8;
+    box-shadow:0 0 15px rgba(0,95,184,0.4);
+  }
+
+  img.mapa{
+    display:block;width:100%;height:auto;border-radius:6px;
+    object-fit:cover;object-position:0 120px; /* recorta parte superior */
+    aspect-ratio:1/1; /* formato quase quadrado */
+  }
 
   /* ===== MARCADORES ===== */
   .marker{
@@ -51,42 +86,57 @@
     box-shadow:0 0 4px rgba(0,0,0,.3);
   }
 
+  /* ===== RODAPÉ ===== */
   footer{
     background:#eee;color:#555;text-align:center;font-size:.85rem;
-    padding:1rem;margin-left:180px;
+    padding:1rem;margin-left:190px;
   }
 
   @media(max-width:700px){
     nav.menu{position:relative;width:100%;height:auto;flex-direction:row;
       border-right:none;border-bottom:2px solid #dde1e4;justify-content:center;}
-    header,main,footer{margin-left:0}
+    header,main,footer{margin-left:0;}
+    .btn-apresentacao{top:5px;right:10px;}
   }
 </style>
 </head>
+
 <body>
 
 <!-- MENU LATERAL -->
 <nav class="menu">
   <h2>MENU</h2>
+  <a href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/" target="_blank">
+    Áreas da Construção Civil
+  </a>
+  <a href="https://tirggo.github.io/panorama-da-construcao/" target="_blank">Panorama da Construção</a>
   <a href="https://tirggo.github.io/radar-assessorias/" target="_blank">Horizontes</a>
-  <a href="#">Botão 2</a>
-  <a href="#">Botão 3</a>
-  <a href="#">Botão 4</a>
+  <a class="bd-pdi" href="https://sesisenaisp.sharepoint.com/:x:/r/sites/GestodeProjetos-ISTCC-DT280/_layouts/15/Doc.aspx?sourcedoc=%7B347621DB-0815-4575-A94B-094C7254B372%7D&file=00.%20PESQUISAS%20%26%20PDI_V00.xlsx&action=default&mobileredirect=true" target="_blank">
+    <span class="icon">📊</span> BD-PDI
+  </a>
   <a href="#">Botão 5</a>
   <a href="#">Botão 6</a>
 </nav>
 
-<header>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL - SENAI-SP</header>
+<!-- CABEÇALHO -->
+<header>
+  <h1>INSTITUTO SENAI DE TECNOLOGIA DA CONSTRUÇÃO CIVIL</h1>
+  <img src="dt_senai.png" alt="Distrito Tecnológico SENAI-SP">
+</header>
 
+<!-- BOTÃO APRESENTAÇÃO -->
+<button class="btn-apresentacao" id="btnApresentacao" title="Modo Apresentação (ESC)">
+  🎞️
+</button>
+
+<!-- CONTEÚDO -->
 <main>
   <div class="imagem-container" id="container">
     <img id="imgMapa" class="mapa" src="panorama-construcao.png"
          alt="Infográfico" usemap="#mapaConstrucao">
 
     <map name="mapaConstrucao" id="mapaConstrucao">
-      <area shape="circle" data-raw="circle|400,300,55"
-            href="https://tirggo.github.io/diagrama-interrelacao-construcao-civil/"
-            alt="Centro" target="_blank" />
+      <!-- Links das áreas -->
       <area shape="circle" data-raw="circle|180,200,50"
             href="https://tirggo.github.io/obras_infraestrutura/"
             alt="Infraestrutura" target="_blank" />
@@ -103,17 +153,21 @@
   </div>
 </main>
 
+<!-- RODAPÉ -->
 <footer>
   <strong>Distrito Tecnológico do SENAI-SP</strong><br>
-  Desenvolvido pelo Distrito Tecnológico do SENAI-SP — Unidade São Bernardo do Campo<br>
-  © 2025 | Infográfico público para fins institucionais e educacionais
+  Unidade São Bernardo do Campo — 2025<br>
+  Infográfico público para fins institucionais e educacionais.
 </footer>
 
+<!-- SCRIPT DE MARCADORES E MODO APRESENTAÇÃO -->
 <script>
 (function(){
   const img=document.getElementById("imgMapa");
   const map=document.getElementById("mapaConstrucao");
   const container=document.getElementById("container");
+  const btn=document.getElementById("btnApresentacao");
+  let apresentacaoAtiva=false;
 
   function parseRaw(a){
     const raw=a.dataset.raw;if(!raw)return null;
@@ -142,6 +196,30 @@
   img.addEventListener("load",apply);
   window.addEventListener("resize",apply);
   if(img.complete)apply();
+
+  // ===== FUNÇÃO MODO APRESENTAÇÃO =====
+  function toggleApresentacao(){
+    const menu=document.querySelector("nav.menu");
+    const header=document.querySelector("header");
+    const footer=document.querySelector("footer");
+
+    apresentacaoAtiva=!apresentacaoAtiva;
+    menu.style.display=apresentacaoAtiva?"none":"flex";
+    header.style.display=apresentacaoAtiva?"none":"flex";
+    footer.style.display=apresentacaoAtiva?"none":"block";
+
+    // Troca ícone do botão
+    btn.textContent=apresentacaoAtiva ? "❌" : "🎞️";
+    btn.title=apresentacaoAtiva ? "Sair do modo apresentação (ESC)" : "Modo Apresentação (ESC)";
+
+    // Destaque visual da imagem
+    container.classList.toggle("apresentacao-ativa", apresentacaoAtiva);
+  }
+
+  btn.addEventListener("click",toggleApresentacao);
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){ toggleApresentacao(); }
+  });
 })();
 </script>
 
